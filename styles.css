@@ -1,0 +1,105 @@
+* {
+  box-sizing: border-box;
+}
+
+:root {
+  color-scheme: dark;
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  background: #10131c;
+  color: #f5f7ff;
+}
+
+body {
+  min-height: 100vh;
+  margin: 0;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+  background: radial-gradient(circle at top, #252b3e 0, #10131c 55%);
+}
+
+.calculator {
+  width: min(100%, 360px);
+  padding: 24px;
+  border: 1px solid #343b50;
+  border-radius: 24px;
+  background: #1a1f2d;
+  box-shadow: 0 24px 70px #0008;
+}
+
+h1 {
+  margin: 0 0 20px;
+  color: #aeb8d2;
+  font-size: 0.9rem;
+  font-weight: 650;
+  letter-spacing: 0.14em;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.display {
+  min-height: 112px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  overflow: hidden;
+  padding: 14px 4px 20px;
+  text-align: right;
+}
+
+.previous-operand {
+  min-height: 24px;
+  color: #9aa4bc;
+  font-size: 1rem;
+}
+
+.current-operand {
+  overflow: hidden;
+  font-size: clamp(2.4rem, 12vw, 3.5rem);
+  font-variant-numeric: tabular-nums;
+  line-height: 1.15;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.keys {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+}
+
+.key {
+  min-height: 62px;
+  border: 0;
+  border-radius: 16px;
+  background: #2a3041;
+  color: #f5f7ff;
+  cursor: pointer;
+  font: inherit;
+  font-size: 1.25rem;
+  transition: background 120ms ease, transform 120ms ease;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.key:hover { background: #394157; }
+.key:active { transform: scale(0.96); }
+.key:focus-visible { outline: 3px solid #b8a6ff; outline-offset: 2px; }
+.key-action { color: #c4b5fd; font-size: 1rem; font-weight: 650; }
+.key-operator { background: #303750; color: #c4b5fd; font-size: 1.5rem; }
+.key-operator:hover { background: #414a68; }
+.key-zero { grid-column: span 2; }
+.key-equals { grid-row: span 2; background: #8b70f5; color: white; font-size: 1.6rem; }
+.key-equals:hover { background: #9c85ff; }
+
+.hint {
+  margin: 18px 0 0;
+  color: #7f8aa4;
+  font-size: 0.75rem;
+  text-align: center;
+}
+
+@media (max-width: 380px) {
+  .calculator { padding: 18px; }
+  .keys { gap: 8px; }
+  .key { min-height: 58px; border-radius: 14px; }
+}
